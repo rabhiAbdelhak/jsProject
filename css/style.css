@@ -4,6 +4,8 @@
     --main-color-dark : #008ba3;
     --main-color-light: #62efff;
     --main-transition: 0.5s;
+    --section-padding-top: 60px;
+    --section-padding-bottom: 60px;
 }
 /* End variables declaration */
 
@@ -64,10 +66,10 @@ a {
 /* Styling the settingsbox */
 .settings-box {
     position: fixed;
-    width: 200px;
+    width: 250px;
     height: 100vh;
     top: 0;
-    left: -200px;
+    left: -250px;
     z-index: 1000;
     background-color: white;
     border-right: 2px solid var(--main-color-dark);
@@ -125,6 +127,8 @@ a {
 .settings-box .section h4 {
     margin-left: 10px;
     margin-bottom: 10px;
+    text-align: center;
+    font-size: 17px;
 }
 
 
@@ -161,14 +165,18 @@ a {
 .background-options span {
     display: inline-block;
     background: var(--main-Color);
+    border-radius: 4px;
     color: white;
     padding: 5px;
     width: 40px;
     cursor: pointer;
+    opacity: 0.5;
+    transition: var(--main-transition);
 }
 
-.background-options span:hover {
-    background: var(--main-color-light);
+.background-options span:hover,
+.background-options span.active {
+    opacity: 1;
 }
 
 
@@ -253,6 +261,18 @@ header ul li .active  {
 
 /* End header styling */
 
+/* Special heading  */
+.special-heading {
+    text-align: center;
+    color: var(--main-Color);
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* End special heading */
+
 /* Start landing page styling */
 .landing-page {
     min-height: 100vh;
@@ -302,19 +322,19 @@ header ul li .active  {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 80%;
+    width: 90%;
 }
 
 .landing-page .jumptron h1 {
     color: var(--main-color-dark);
     font-weight: bold;
-    font-size: 50px;
+    font-size: 60px;
 }
 
 
 .landing-page .jumptron P{
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
 }
 
@@ -338,4 +358,310 @@ header ul li .active  {
 }
 
 /* End landing page styling */
+
+/* Start About section styling */
+
+.about{
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+}
+
+.about .container {
+    display: flex;
+}
+
+.about .image-holder {
+    width: 40%;
+    margin-right: 40px;
+}
+
+@media (max-width: 768px) {
+    .about .image-holder {
+        display: none;
+    }
+}
+
+.about .image-holder img {
+    max-width: 100%;
+}
+
+.about .info-box {
+    flex:1;
+}
+
+@media (max-width: 768px) {
+    .about .info-box {
+        text-align: center;
+    }
+}
+
+.about .info-box h2 {
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 40px;
+    color: var(--main-Color);
+}
+
+.about .info-box p {
+    line-height: 1.6;
+    font-size: 18px;
+    color: #777;
+    text-align: justify;
+}
+
+/* Start skills section */
+.skills{
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+    background: #eee;
+}
+
+.skills .content{
+   display: flex;
+   flex-direction: column;
+   gap: 50px;
+}
+
+.skills .content .skill {
+    display: flex;
+    background: #ccc;
+    padding: 10px;
+} 
+
+.skills .content .skill h3{
+    flex-basis: 120px;
+    margin-right: 10px;
+}
+
+.skills .content .skill .progress-bar {
+    height: 25px;
+    border-radius: 5px;
+    flex:1;
+    background: #ddd;
+    
+}
+
+.skills .content .skill .progress {
+    height: 100%;
+    width: 0;
+    position: relative;
+    background-color: var(--main-Color);
+    transition: 3s;
+}
+
+.skills .content .skill .progress::before {
+    content: attr(data-progress);
+    width: 50px;
+    height: 25px;
+    background: white;
+    border: 1px solid var(--main-Color);
+    position: absolute;
+    top: -45px;
+    border-radius: 6px;
+    color: var(--main-Color);
+    right: -25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* End skills section */
+
+/* Start gallery section */
+.gallery {
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+}
+.gallery .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px , 1fr));
+    gap: 20px;
+}
+.gallery .box {
+    padding: 10px;
+    background: #eee;
+}
+.gallery .image {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery .image img {
+    max-width: 100%;
+    transition: var(--main-transition);
+}
+
+/* .gallery .image::before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.39);
+    transition: var(--main-transition);
+} */
+
+.gallery .box:hover .image::before {
+    width: 100%;
+    height: 100%;
+}
+
+.gallery .box:hover .image img {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Style the popup */
+.popup-overlay{
+    position:fixed; 
+    width:100%; 
+    height:100%; 
+    top:0; 
+    left:0; 
+    background: rgb(0 0 0 / 60%);
+}
+
+.popup-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    padding: 20px; 
+    margin: 40px auto; 
+    background:white;
+    width: 60%;
+    height: 60%;
+    text-align: center;
+}
+
+.popup-box img {
+    max-width: 100%;
+    height: 80%;
+}
+
+.popup-box h3 {
+  margin-bottom: 10px;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.popup-box .close-button {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: rgb(117, 25, 25);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-weight: bold;
+    transition: var(--main-transition);
+
+}
+
+.popup-box .close-button:hover{
+    background-color: white;
+    color: rgb(117, 25, 25);
+    border: 1px solid rgb(117, 25, 25);
+}
+
+/* End gallery section */
+
+
+/* Start timeline section */
+.timeline {
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+    background: #eee;
+}
+
+.timeline .line{
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  width: 3px;
+  height: fit-content;
+  background-color: var(--main-Color);
+}
+
+.timeline .part {
+  position: relative;
+  background: white;
+  width: 250px;
+  opacity: 0;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 10px;
+  transition: 10s;
+}
+.timeline .part::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 3px solid var(--main-Color);
+    border-radius: 5px;
+    position: absolute;
+    background: white;
+    transform: rotate(45deg);
+}
+
+.timeline .part:nth-child(odd) {
+    right: -50px;
+}
+
+.timeline .part:nth-child(odd)::before {
+    bottom: 0;
+    left: -67px;
+}
+
+.timeline .part:nth-child(even) {
+    left: -50px;
+    transform: translateX(-100%);
+}
+
+.timeline .part:nth-child(even)::before {
+    bottom: 0;
+    right: -49px;
+}
+
+
+
+.timeline .part .year {
+    padding: 10px;
+    width: 60px;
+    height: 26px;
+    position: absolute;
+    background: var(--main-color-light);
+    top: -13px;
+    left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.timeline .part h1 {
+    font-size: 20px;
+    margin-top: 5px;
+    color: var(--main-color-dark);
+}
+
+
+.timeline .part p {
+    color: #777;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
 

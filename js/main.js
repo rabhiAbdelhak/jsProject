@@ -18,27 +18,35 @@ if(colorsStore !== null){
     })
     
 }
+// select the landing page
+let landingPage = document.querySelector('.landing-page');
+
+// Check if there is background image stored in the locastorege
+let backImage = localStorage.getItem('background-image');
+// check if the back image is not null and put it in the landing background
+if(backImage !== null) {
+    landingPage.style.backgroundImage = `url(../img/${backImage})`
+} 
 
 // Change the background-image;
 
-let landingPage = document.querySelector('.landing-page');
+
 // select previous and next buttons
 let previous = document.querySelector('.previous-back');
 let next = document.querySelector('.next-back'); 
 
 let images = ['phoneblue.jpg', 'moutanBeutiful.jpg', 'mountagne.jpg'];
 let currentImage = 0;
-console.log(next);
 
 // the next background
 next.onclick = () => {
     currentImage++;
-    console.log(currentImage)
     let index = currentImage % images.length
     if (index > (images.length - 1)) {
         console.log('it is enough')
     }else {
         landingPage.style.setProperty('background-image', `url(../img/${images[index]})`);
+        localStorage.setItem('background-image' , images[index]);
     } 
 }
 
@@ -50,15 +58,32 @@ previous.onclick = () => {
         currentImage--;
         let index = currentImage % images.length
         landingPage.style.setProperty('background-image', `url(../img/${images[index]})`);
+        localStorage.setItem('background-image' , images[index]);
     }
     
 }
 
-// Change the background each 3 seconds.
- let randomBackround = setInterval(() => {
-     currentImage++;
-     landingPage.style.setProperty('background-image', `url(../img/${images[currentImage % images.length]})`);
- }, 3000);
+// Variable to check the random background option
+let backgroundRandomOption = true;
+
+// Varibale to control the interval 
+let backgroundInterval;
+
+// function to excute the intervale if background option is true 
+
+let randomizeBackground = () => {
+    if(backgroundRandomOption == true) {
+        backgroundInterval = setInterval(() => {
+            currentImage++;
+            let index = currentImage % images.length;
+            landingPage.style.setProperty('background-image', `url(../img/${images[index]})`);
+            localStorage.setItem('background-image' , images[index]);
+        }, 1000);
+    }
+}
+
+// excute the function to random the background
+randomizeBackground();
 
  // show the settings box
  let showIt      = document.querySelector('.settings-box .shower');
@@ -73,7 +98,6 @@ previous.onclick = () => {
 
 // select the LIs to and loop on them 
 let listColors = document.querySelectorAll('.color-options li');
-console.log(listColors)
 
 listColors.forEach(li => {
     li.onclick = (e) => {
@@ -99,22 +123,164 @@ listColors.forEach(li => {
     }
 });
 
-// Able or disable the random background
-let yes = document.querySelector('.background-options .yes');
-let no = document.querySelector('.background-options .no');
+// check if there is a value of  yes or no in the random-background option in local storage
+let randomBackStore = localStorage.getItem('random-background');
+console.log(randomBackStore);
+document.querySelectorAll('.background-options span').forEach(span => {
+    if(span.dataset.background == randomBackStore){
+        span.classList.add('active');
+        randomBackgroundBehavior(span.dataset.background);
+    }
+})
 
-yes.onclick = () => {
-    randomBackround;
-    localStorage.setItem('random-background' , 'yes');
-    no.classList.remove('active');
-    yes.classList.add('active');
+// Switch background random options
+document.querySelectorAll('.background-options span').forEach(span => {
+    // On click on each span from the selected 
+    span.addEventListener('click' , (e) => {
+        // select allspans with class active andremove it 
+         e.target.parentElement.querySelectorAll('.active').forEach(element => {
+                // Remove the active class   
+                element.classList.remove('active');
+         });
+        //  finaly we will add the class active to the clicked element 
+        e.target.classList.add('active');
+        // check the randomBack value and store use it to manipulate the interval
+        let isEnable = e.target.dataset.background; 
+        randomBackgroundBehavior(isEnable);
+        localStorage.setItem('random-background', isEnable);
+    });
+})
+
+
+
+// function to do if the random is able or not
+function randomBackgroundBehavior(enable){
+    // check the enable value
+    if(enable === 'yes') {
+        // set the variable backOption to true and excute the fucntion randomize
+        backgroundRandomOption = true;
+        randomizeBackground();
+ }else {
+      // set the the variable backOption to false and clear the intervale   
+       backgroundRandomOption = false;
+       randomizeBackground();
+       clearInterval(backgroundInterval);
+ }
+}  
+
+let skills = document.querySelector('.skills')
+// animate the skillsection when reach it with scrolling 
+window.onscroll = () => {
+    // check if we reach the section 
+    console.log(reachSection(skills))
+    if(reachSection(skills)){
+        // select elements to animate 
+        let progressColored = document.querySelectorAll('.skills .skill .progress-bar .progress');
+        progressColored.forEach(el => {
+            el.style.width = el.dataset.progress;
+        })
+    };
+
+    // animate the timeline section 
+        let timeline = document.querySelector('.timeline');
+        let parts = document.querySelectorAll('.part');
+        parts.forEach(part => {
+            if(reachSection(part)){
+                part.style.opacity = 1;
+            }
+        })
+        
+        
 }
 
-no.onclick= () => {
-    clearInterval(randomBackround);
-    localStorage.setItem('random-background' , 'no');
-    yes.classList.remove('active');
-    no.classList.add('active');
+
+function reachSection(section) {
+    let isReached = false;
+        // get the distance on the top of the section.
+        let sectionOffsetTop = section.offsetTop;
+
+        // the height of the section.
+        let sectionOutterHeight = section.offsetHeight;
+
+        // the height of the window in show.
+        let windowHeight = this.innerHeight;
+
+        // the scroll top of the window
+        let windowScrollTop = this.pageYOffset;
+        
+        // check if we reach the section 
+        if( windowScrollTop >= (sectionOffsetTop + sectionOutterHeight - windowHeight)){
+            isReached = true
+        };
+     return isReached
+}
+
+// Images popUp
+
+let gallery = document.querySelectorAll('.gallery img');
+
+gallery.forEach(img => {
+    img.addEventListener('click', (e) => {
+        // create overlay elment
+        let overlay  = document.createElement('div');
+
+        // add className to the element
+        overlay.className = 'popup-overlay';
+
+        // Apendthe elementto the body
+        document.body.appendChild(overlay);
+        
+
+        // createan element to show the image with his informations
+        let popupBox = document.createElement('div');
+        popupBox.className = 'popup-box';
+        
+        // Create the image to show it in the popup box 
+        let image = document.createElement('img');
+        image.setAttribute('src' , e.target.getAttribute('src'));
+
+        // add the alt text as a title of the image if it isnot null
+        if(e.target.src != null){
+           
+           // Create th heading element     
+           let heading = document.createElement('h3');
+
+          // Create the Text node 
+          let headingText = document.createTextNode(e.target.alt);
+          
+          // Add the text node to the heading element
+          heading.appendChild(headingText);
+
+         // Append the heading element to the poopup box 
+         popupBox.appendChild(heading)    
+
+        }
+        
+        popupBox.appendChild(image)
+        document.body.appendChild(popupBox)
+
+        // Create the close button
+        let closeButton = document.createElement('span');
+        closeButton.innerText = 'X';
+        closeButton.className = 'close-button';
+
+        // Append the close button to the popup box 
+        popupBox.appendChild(closeButton);
+        
+    });
+})
+
+// Close the popup box
+document.addEventListener('click' , (e) => {
+    if(e.target.className == 'close-button'){
+            // Remove the popup box
+            e.target.parentNode.remove();
+
+            // remove the overlay 
+            document.querySelector('.popup-overlay').remove();
+    }
+});
+
+
     
-}
 
