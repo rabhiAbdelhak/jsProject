@@ -172,7 +172,6 @@ let skills = document.querySelector('.skills')
 // animate the skillsection when reach it with scrolling 
 window.onscroll = () => {
     // check if we reach the section 
-    console.log(reachSection(skills))
     if(reachSection(skills)){
         // select elements to animate 
         let progressColored = document.querySelectorAll('.skills .skill .progress-bar .progress');
@@ -189,7 +188,6 @@ window.onscroll = () => {
                 part.style.opacity = 1;
             }
         })
-        
         
 }
 
@@ -292,19 +290,47 @@ let content = document.querySelectorAll('.testimonials .content');
 // select buttons of slider
 let testSlideButtons = document.querySelectorAll('.slide li');
 
+// loop on slide buttons 
 testSlideButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
+        // onclick a slide button
         e.target.parentElement.querySelectorAll('li').forEach(li => {
+            // remove the classs active from all lis
             li.classList.remove('active')
         })
+        // add the class active to the clicked li
         e.target.classList.add('active')
+        // loop on all testimonials 
         testimonials.forEach(testimonial => {
+            // change the diplay property to none for all testimonials blocks 
             testimonial.style.display = 'none';
         })
+        // show the current testimonial block demanded by the click
         testimonials[e.target.value].style.display = 'block';
     })
 })
 
+// navigate with the navigation bullets
+
+// select the navigation bullets
+let bullets = document.querySelectorAll('.bullets .bullet');
+
+// loop on all bullets 
+bullets.forEach(bullet => {
+    bullet.addEventListener('click', (e) => {
+        // loop all bullets
+        e.target.parentElement.querySelectorAll('.bullet').forEach(blt => {
+            // remove the class active from the  bullet
+            blt.classList.remove('active');
+        });
+        // Add the class class to the clicked bullet
+        e.target.classList.add('active');
+        document.querySelector(e.target.dataset.section).scrollIntoView({
+            behavior : 'smooth'
+        })
+    })
+
+});
 
 
     

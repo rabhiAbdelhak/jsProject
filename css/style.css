@@ -775,11 +775,11 @@ header ul li .active  {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--main-color-light);
+    background: rgba(0, 0, 0, 0.329);
     box-shadow: 0 0 5px var(--main-color-dark);
     transition: var(--main-transition);
     animation-name: expend;
-    animation-duration: var(--main-transition);
+    animation-duration: 2s;
     animation-fill-mode: forwards;    
 }
 
@@ -882,4 +882,62 @@ header ul li .active  {
 }
 
 /* End testimonials section */
+
+/* Start nav-bullets styling */
+.bullets {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bullets .bullet {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--main-Color);
+    background: white;
+    position: relative;
+    margin-bottom: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.bullets .bullet.active,
+.bullets .bullet:hover {
+    background: var(--main-Color);
+}
+
+.bullets .bullet:hover .tooltip{
+    display: block;
+}
+
+.bullets .bullet .tooltip {
+    position: absolute;
+    text-align: center;
+    left: -110px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--main-Color);
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    width: 100px;
+    border-radius: 5px;
+    display: none;
+    transition: var(--main-transition);
+}
+
+.bullets .bullet .tooltip::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px;
+    border-color:  transparent  transparent  transparent var(--main-Color);
+    position: absolute;
+    top: 50%;
+    right: -12px;
+    transform: translateY(-50%);
+
+}
 
