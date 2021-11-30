@@ -1,237 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,300;0,400;0,600;1,300&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&family=Cairo:wght@400;600;700;900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,200;1,300&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,600;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
 
-    <title>Special design</title>
-  </head>
-  <body>
-    <!-- Settings box -->
-    <div class="settings-box">
-      <div class="toggle-btn-container">
-        <i class="fas fa-gear shower"></i>
-      </div>
-      <h3>Options</h3>
-      <div class="section">
-        <h4>Colors</h4>
-        <ul class="options color-options">
-          <li
-            style="color: #00bcd4"
-            data-primary="#00bcd4"
-            data-dark="#008ba3"
-            data-light="#62efff"
-          >
-            <i class="round" style="background: #00bcd4"></i>Blue
-          </li>
-          <li
-            style="color: #dd2c00"
-            data-primary="#dd2c00"
-            data-dark="#a30000"
-            data-light="#ff6434"
-          >
-            <i class="round" style="background: #dd2c00"></i>Red
-          </li>
-          <li
-            style="color: #4caf50"
-            data-primary="#4caf50"
-            data-dark="#087f23"
-            data-light="#087f23"
-          >
-            <i class="round" style="background: #4caf50"></i>Green
-          </li>
-        </ul>
-      </div>
-      <div class="section background-options">
-        <h4>Random Background ?</h4>
-        <span class="yes" data-background="yes">Yes</span>
-        <span class="no" data-background="no">No</span>
-      </div>
-    </div>
-    <!-- End settings box -->
-    <!-- Satrt landing page -->
-    <div class="landing-page">
-      <div class="container">
-        <header>
-          <div class="logo">High Quality</div>
-          <ul>
-            <li><a class="active" href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <div class="toggle-menu">click</div>
-        </header>
-        <div class="jumptron">
-          <h1>We Have <span>The Best</span>Quality</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
-            alias architecto! Quos porro recusandae sint dolores minima pariatur
-            obcaecati nisi dolore, blanditiis tenetur, cupiditate doloremque,
-            eius delectus veniam sit inventore.
-          </p>
-          <a href="#" class="setBack">Go to details</a>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,300;0,400;0,600;1,300&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&family=Cairo:wght@400;600;700;900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,200;1,300&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,600;1,700;1,900&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/all.min.css"/>
+        <link rel="stylesheet" href="css/normalize.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+
+        <title>Special design</title>
+    </head>
+
+    <body>
+        <!-- Settings box -->
+        <div class="settings-box">
+            <div class="toggle-btn-container">
+                <i class="fas fa-gear shower"></i>
+            </div>
+            <h3>Options</h3>
+            <div class="section">
+                <h4>Colors</h4>
+                <ul class="options color-options">
+                    <li style="color: #00bcd4" data-primary="#00bcd4" data-dark="#008ba3" data-light="#62efff">
+                        <i class="round" style="background: #00bcd4"></i>Blue
+                    </li>
+                    <li style="color: #dd2c00" data-primary="#dd2c00" data-dark="#a30000" data-light="#ff6434">
+                        <i class="round" style="background: #dd2c00"></i>Red
+                    </li>
+                    <li style="color: #4caf50" data-primary="#4caf50" data-dark="#087f23" data-light="#087f23">
+                        <i class="round" style="background: #4caf50"></i>Green
+                    </li>
+                </ul>
+            </div>
+            <div class="section background-options">
+                <h4>Random Background ?</h4>
+                <span class="yes" data-background="yes">Yes</span>
+                <span class="no" data-background="no">No</span>
+            </div>
         </div>
-      </div>
-      <span class="previous-back" disabled
-        ><i class="fas fa-angle-left fa-2x"></i
-      ></span>
-      <span class="next-back"><i class="fas fa-angle-right fa-2x"></i></span>
-    </div>
-    <!-- End Landing page -->
-    <!-- Start about section -->
-    <div class="about">
-      <div class="container">
-        <div class="image-holder">
-          <img src="img/about.jpg" alt="aboutImage" />
+        <!-- End settings box -->
+        <!-- Satrt landing page -->
+        <div class="landing-page">
+            <div class="container">
+                <header>
+                    <div class="logo">High Quality</div>
+                    <ul>
+                        <li>
+                            <a class="active" href="#about">About</a>
+                        </li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li>
+                            <a href="#products">Products</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="toggle-menu">click</div>
+                </header>
+                <div class="jumptron">
+                    <h1>We Have
+                        <span>The Best</span>Quality</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
+                                                          alias architecto! Quos porro recusandae sint dolores minima pariatur
+                                                          obcaecati nisi dolore, blanditiis tenetur, cupiditate doloremque,
+                                                          eius delectus veniam sit inventore.
+                    </p>
+                    <a href="#" class="setBack">Go to details</a>
+                </div>
+            </div>
+            <span class="previous-back" disabled>
+                <i class="fas fa-angle-left fa-2x"></i>
+            </span>
+            <span class="next-back">
+                <i class="fas fa-angle-right fa-2x"></i>
+            </span>
         </div>
-        <div class="info-box">
-          <h2>About Us</h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti
-            excepturi alias sunt suscipit eos, quod quasi natus hic. In dolorum
-            dignissimos quos eligendi aliquam, neque officia amet provident a
-            dolorem.
-          </p>
+        <!-- End Landing page -->
+        <!-- Start about section -->
+        <div class="about">
+            <div class="container">
+                <div class="image-holder">
+                    <img src="img/about.jpg" alt="aboutImage"/>
+                </div>
+                <div class="info-box">
+                    <h2>About Us</h2>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti
+                                                          excepturi alias sunt suscipit eos, quod quasi natus hic. In dolorum
+                                                          dignissimos quos eligendi aliquam, neque officia amet provident a
+                                                          dolorem.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- End About section -->
-    <div class="skills">
-      <div class="container">
-        <div class="special-heading">
-          <h1>Our skills</h1>
+        <!-- End About section -->
+        <div class="skills">
+            <div class="container">
+                <div class="special-heading">
+                    <h1>Our skills</h1>
+                </div>
+                <div class="content">
+                    <div class="skill">
+                        <h3>HTML</h3>
+                        <div class='progress-bar'>
+                            <div class='progress' data-progress='90%'></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h3>CSS</h3>
+                        <div class='progress-bar'>
+                            <div class='progress' data-progress='75%'></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h3>JAVASCRIPT</h3>
+                        <div class='progress-bar'>
+                            <div class='progress' data-progress='40%'></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h3>PYTHON</h3>
+                        <div class='progress-bar'>
+                            <div class='progress' data-progress='60%'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="content">
-          <div class="skill">
-            <h3>HTML</h3>
-            <div class='progress-bar' >
-              <div class='progress' data-progress = '90%'>
-              </div>
+        <!-- End skills section -->
+        <!-- Start Gallery section -->
+        <div class="gallery">
+            <div class="container">
+                <div class="special-heading">
+                    <h1>Gallery</h1>
+                </div>
+                <div class="content">
+                    <div class="box">
+                        <div class="image">
+                            <img src="img/gallery-01.png" alt="image-gallery">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="image">
+                            <img src="img/gallery-02.png" alt="image-gallery">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="image">
+                            <img src="img/gallery-03.jpg" alt="image-gallery">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="image">
+                            <img src="img/gallery-04.png" alt="image-gallery">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="image">
+                            <img src="img/gallery-05.jpg" alt="image-gallery">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="image">
+                            <img src="img/gallery-06.png" alt="image-gallery">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="image">
+                            <img src="img/features-02.jpg" alt="image-gallery">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="image">
+                            <img src="img/features-03.jpg" alt="image-gallery">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="skill">
-            <h3>CSS</h3>
-            <div class='progress-bar' >
-              <div class='progress'  data-progress = '75%'>
-              </div>
-            </div>
-          </div>
-          <div class="skill">
-            <h3>JAVASCRIPT</h3>
-            <div class='progress-bar' >
-              <div class='progress'  data-progress = '40%'>
-              </div>
-            </div>
-          </div>
-          <div class="skill">
-            <h3>PYTHON</h3>
-            <div class='progress-bar' >
-              <div class='progress' data-progress = '60%'>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <!-- End skills section -->
-    <!-- Start Gallery section -->
-    <div class="gallery">
-      <div class="container">
-        <div class="special-heading">
-          <h1>Gallery</h1>
+        <!-- End Gallery section -->
+        <!-- Start timeLine section -->
+        <div class="timeline">
+            <div class="container">
+                <div class="special-heading">
+                    <h1>Time Line</h1>
+                </div>
+                <div class="line">
+                    <div class="part">
+                        <span class="year">2019</span>
+                        <h1>Doing work</h1>
+                        <p>descritpionof the work you was Doing</p>
+                    </div>
+                    <div class="part">
+                        <span class="year">2020</span>
+                        <h1>Doing work</h1>
+                        <p>descritpionof the work you was Doing</p>
+                    </div>
+                    <div class="part">
+                        <span class="year">2021</span>
+                        <h1>Doing work</h1>
+                        <p>descritpionof the work you was Doing</p>
+                    </div>
+                    <div class="part">
+                        <span class="year">2022</span>
+                        <h1>Doing work</h1>
+                        <p>descritpionof the work you was Doing</p>
+                    </div>
+                    <div class="part">
+                        <span class="year">2023</span>
+                        <h1>Doing work</h1>
+                        <p>descritpionof the work you was Doing</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="content">
-          <div class="box">
-            <div class="image">
-              <img src="img/gallery-01.png" alt="image-gallery">
+        <!-- End timeLine section -->
+        <!-- Start features section -->
+        <div class="features">
+            <div class="container">
+                <div class="special-heading">
+                    <h1>Our features</h1>
+                </div>
+                <div class="content">
+                    <div class="feature">
+                        <img src="img/001-work-from-home.png" alt="feature image">
+                        <h3>Developement</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dignissimos debitis eligendi.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="img/018-graphic-designer.png" alt="feature image">
+                        <h3>Graphic Design</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dignissimos debitis eligendi.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="img/006-internet.png" alt="feature image">
+                        <h3>Networking</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dignissimos debitis eligendi.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="img/017-consulting.png" alt="feature image">
+                        <h3>Consulting</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dignissimos debitis eligendi.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="img/009-freelancer.png" alt="feature image">
+                        <h3>FreeLance</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dignissimos debitis eligendi.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="img/013-travel.png" alt="feature image">
+                        <h3>Traveling</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dignissimos debitis eligendi.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="img/gallery-02.png" alt="image-gallery">
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="img/gallery-03.jpg" alt="image-gallery">
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="img/gallery-04.png" alt="image-gallery">
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="img/gallery-05.jpg" alt="image-gallery">
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="img/gallery-06.png" alt="image-gallery">
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="img/features-02.jpg" alt="image-gallery">
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="img/features-03.jpg" alt="image-gallery">
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <!-- End Gallery section -->
-    <!-- Start timeLine section -->
-    <div class="timeline">
-      <div class="container">
-        <div class="special-heading">
-          <h1>Time Line</h1>
+        <!-- End features section -->
+
+        <!-- Start testimonials section-->
+        <div class="testimonials">
+            <div class="container">
+                <div class="special-heading">
+                    <h1>Testimonials</h1>
+                </div>
+                <div class="content">
+                    <div class="testimonial">
+                        <img src="img/J.jpg" alt="userPhoto">
+                        <span class="teral">,,</span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci 
+                                                      voluptates porro iure laborum soluta,
+                                                      quo harum nulla ratione sequi, provident, 
+                                                      commodi ullam minima animi facere voluptate iste ab labore ut.
+                        </p>
+                        <div class="line"></div>
+                        <div class="user-info">
+                            <span class="job">Frontend Developer</span>
+                            <span class="name">Rabhi Abdelhak</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <img src="img/J.jpg" alt="userPhoto">
+                        <span class="teral">,,</span>
+                        <p>he had a great inention of work and repitition skill that will allow him
+                                                    to be the more efficient programmer in our comunity with time!
+                        </p>
+                        <div class="line"></div>
+                        <div class="user-info">
+                            <span class="job">IT Support Specialist</span>
+                            <span class="name">Rabhi Abdelhak</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <img src="img/J.jpg" alt="userPhoto">
+                        <span class="teral">,,</span>
+                        <p>With his ability of using all the web technologies famous in
+                                                        the market, he is one of the most important worker of our society
+                                                        he makes it easy to do, whenever he has a mission.
+                        </p>
+                        <div class="line"></div>
+                        <div class="user-info">
+                            <span class="job">Computer Engineer</span>
+                            <span class="name">Rabhi Abdelhak</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <img src="img/J.jpg" alt="userPhoto">
+                        <span class="teral">,,</span>
+                        <p>With his ability of using all the web technologies famous in
+                                                        the market, he is one of the most important worker of our society
+                                                        he makes it easy to do, whenever he has a mission.
+                        </p>
+                        <div class="line"></div>
+                        <div class="user-info">
+                            <span class="job">Network Administrateur</span>
+                            <span class="name">Rabhi Abdelhak</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="slide">
+                <li value="0" class="active">1</li>
+                <li value="1">2</li>
+                <li value="2">3</li>
+                <li value="3">4</li>
+            </ul>
         </div>
-        <div class="line">
-          <div class="part">
-            <span class="year">2019</span>
-            <h1>Doing work</h1>
-            <p>descritpionof the work you was Doing</p>
-          </div>
-          <div class="part">
-            <span class="year">2020</span>
-            <h1>Doing work</h1>
-            <p>descritpionof the work you was Doing</p>
-          </div>
-          <div class="part">
-            <span class="year">2021</span>
-            <h1>Doing work</h1>
-            <p>descritpionof the work you was Doing</p>
-          </div>
-          <div class="part">
-            <span class="year">2022</span>
-            <h1>Doing work</h1>
-            <p>descritpionof the work you was Doing</p>
-          </div>
-          <div class="part">
-            <span class="year">2023</span>
-            <h1>Doing work</h1>
-            <p>descritpionof the work you was Doing</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End timeLine section -->
-    <script src="js/main.js"></script>
-  </body>
+        <!-- End testimonials section -->
+        <script src="js/main.js"></script>
+    </body>
+
 </html>

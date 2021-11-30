@@ -281,6 +281,31 @@ document.addEventListener('click' , (e) => {
     }
 });
 
+// testimonials slider
+
+// select the testimonial blocks
+let testimonials = document.querySelectorAll('.testimonials .content .testimonial');
+testimonials[0].style.display = 'block';
+// select the content block
+let content = document.querySelectorAll('.testimonials .content');
+
+// select buttons of slider
+let testSlideButtons = document.querySelectorAll('.slide li');
+
+testSlideButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.target.parentElement.querySelectorAll('li').forEach(li => {
+            li.classList.remove('active')
+        })
+        e.target.classList.add('active')
+        testimonials.forEach(testimonial => {
+            testimonial.style.display = 'none';
+        })
+        testimonials[e.target.value].style.display = 'block';
+    })
+})
+
+
 
     
 
