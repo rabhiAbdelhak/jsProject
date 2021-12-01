@@ -158,11 +158,11 @@ a {
     color: var(--main-color-light);
 }
 
-.background-options {
+.confirm-options {
     text-align: center;
 }
 
-.background-options span {
+.confirm-options span {
     display: inline-block;
     background: var(--main-Color);
     border-radius: 4px;
@@ -174,10 +174,32 @@ a {
     transition: var(--main-transition);
 }
 
-.background-options span:hover,
-.background-options span.active {
+.confirm-options span:hover,
+.confirm-options span.active {
     opacity: 1;
 }
+.reset-option{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.reset-option button{
+    display: block;
+    margin: 0 auto;
+    background: var(--main-Color);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.reset-option button:hover{
+    opacity: 0.7;
+}
+
 
 
 /* End the settings box */
@@ -213,50 +235,68 @@ header .logo {
     justify-content: center;
 }
 
-header ul {
-    flex: 1;
+header .menu {
     display: flex;
+    gap: 10px;
     justify-content: flex-end;
-    position: relative;
+    color: white;
+}
+
+header .menu li {
+    cursor: pointer;
 }
 
 header .toggle-menu {
+    color: white;
     display: none;
+    cursor: pointer;
+    position: relative;
 }
 
-@media (max-width:768px) {
-    header ul {
+
+
+@media (max-width: 991px) {
+    header .menu {
         display: none;
-        flex-direction: column;
-        position: absolute;
-        background: var(--main-color-light);
-        color: black;
-        height: 60px;
-        padding: 10px;
-        width: 40%;
-        top: 45px;
-        left: 60%;
     }
+
+    header ul.open {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        right: 0;
+        color: var(--main-Color);
+        padding: 15px;
+        width: 100%;
+        font-weight: bold;
+        z-index: 1000;
+        position: absolute;
+        top: 57px;
+        background-color: white;
+    }
+
+    header ul.open li:not(:last-child) {
+        border-bottom: 1px solid var(--main-Color);
+        padding-bottom: 10px;
+    }
+
+    header ul.open li:hover {
+        color: var(--main-color-light);
+    }
+    
     header .toggle-menu {
         display: block;
     }
-}
 
-
-header ul li a{
-    padding: 15px;
-    color: white;
-    font-weight: bold;
-    height: 70px;
-    transition: var(--main-transition);
-}
-
-
-
-header ul li a:hover,
-header ul li .active  {
-      color: var(--main-color-light);
-      border-bottom: 2px solid var(--main-color-light);
+    header .toggle-menu.menu-active::before {
+        content: "";
+        border-style: solid;
+        border-width: 10px;
+        border-color: transparent transparent white;
+        position: absolute;
+        bottom: -17px;
+        left: -5px;
+    }
 }
 
 /* End header styling */
@@ -276,7 +316,7 @@ header ul li .active  {
 /* Start landing page styling */
 .landing-page {
     min-height: 100vh;
-    background-image: url(../img/phoneblue.jpg);
+    background-image: url(../img/phoeblue.jpg  ), white;
     background-size: cover;
     position: relative;
 }
@@ -475,7 +515,7 @@ header ul li .active  {
 }
 .gallery .content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px , 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px , 1fr));
     gap: 20px;
 }
 .gallery .box {
@@ -754,7 +794,7 @@ header ul li .active  {
 
 .testimonials .content {
     padding: 20px;
-    border:1px solid var(--main-color-light)
+    border-top:1px solid var(--main-color-light)
 }
 
 .testimonials .content .testimonial {
@@ -775,8 +815,8 @@ header ul li .active  {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.329);
-    box-shadow: 0 0 5px var(--main-color-dark);
+    background: rgba(0, 0, 0, 0.055);
+    border-top: 1px solid var(--main-color-light) ;
     transition: var(--main-transition);
     animation-name: expend;
     animation-duration: 2s;
@@ -823,7 +863,7 @@ header ul li .active  {
     height: 3px;
     width: 20%;
     margin: 20px auto;
-    background: black;
+    background: var(--main-Color);
 }
 
 .testimonials .content .testimonial .user-info {
@@ -848,7 +888,7 @@ header ul li .active  {
 .testimonials .content .testimonial .user-info .name {
     font-size: 18px;
     font-weight: bold;
-    color: #555;
+    color: var(--main-color-dark);
 }
 
 .testimonials .slide {
@@ -886,7 +926,7 @@ header ul li .active  {
 /* Start nav-bullets styling */
 .bullets {
     position: fixed;
-    right: 0;
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -894,10 +934,9 @@ header ul li .active  {
 .bullets .bullet {
     width: 20px;
     height: 20px;
-    border: 2px solid var(--main-Color);
-    background: white;
+    border: 1px solid var(--main-Color);
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -941,3 +980,77 @@ header ul li .active  {
 
 }
 
+/* End bullets navigation */
+
+/* Start contact section styling */
+.contact {
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+}
+
+.contact .content {
+    display: flex;
+    margin: 0 auto;
+    border: 1px solid var(--main-color-light);
+}
+
+@media (max-width: 768px) {
+    .contact .content {
+        flex-direction: column;
+    }
+}
+
+.contact .content .explain {
+    background-color: var(--main-Color);
+    color: white;
+    font-weight: bold;
+    padding: 20px;
+}
+.contact .content .explain ul {
+    list-style: square;
+    margin-left: 40px;
+}
+
+.contact .content .explain ul li {
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+.contact .content .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 15px;
+    padding: 40px;
+}
+
+.contact .content .form input:not([type = 'submit']),
+.contact .content .form textarea {
+    width: 80%;
+    height: 35px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid var(--main-color-light);
+    
+}
+
+.contact .content .form textarea {
+    height: 150px;
+}
+
+.contact .content .form input[type = 'submit']{
+    background: var(--main-Color);
+    color: white;
+    width: 30%;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--main-transition);
+}
+
+.contact .content .form input[type = 'submit']:hover {
+    background-color: var(--main-color-light);
+    transform: translateY(-3px);
+}

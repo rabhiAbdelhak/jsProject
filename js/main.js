@@ -98,6 +98,7 @@ randomizeBackground();
 
 // select the LIs to and loop on them 
 let listColors = document.querySelectorAll('.color-options li');
+handleActiveClass(listColors);
 
 listColors.forEach(li => {
     li.onclick = (e) => {
@@ -113,12 +114,6 @@ listColors.forEach(li => {
         let colors = [primary, dark, light]
         localStorage.setItem('color-options' , colors );
 
-        // Remove the class active from all items in the list
-        e.target.parentElement.querySelectorAll('.active').forEach(li => li.classList.remove('active'));
-
-        // add class active to the current li
-        e.target.classList.add('active');
-
         
     }
 });
@@ -132,6 +127,23 @@ document.querySelectorAll('.background-options span').forEach(span => {
         randomBackgroundBehavior(span.dataset.background);
     }
 })
+
+// select the bullets-block
+let bulletsBlock = document.querySelector('.bullets');
+
+//check if there is a value of yes or no to show or hide the bullets block 
+let showBulletsBlock = localStorage.getItem('show-bullets');
+
+if(showBulletsBlock !== null){
+    if(showBulletsBlock == 'yes'){
+        bulletsBlock.style.display = 'block';
+        document.querySelector('.bullets-options span.yes').classList.add('active');
+    }else {
+        bulletsBlock.style.display = 'none';
+        document.querySelector('.bullets-options span.no').classList.add('active')
+    }
+}
+
 
 // Switch background random options
 document.querySelectorAll('.background-options span').forEach(span => {
@@ -167,6 +179,9 @@ function randomBackgroundBehavior(enable){
        clearInterval(backgroundInterval);
  }
 }  
+
+
+
 
 let skills = document.querySelector('.skills')
 // animate the skillsection when reach it with scrolling 
@@ -290,16 +305,12 @@ let content = document.querySelectorAll('.testimonials .content');
 // select buttons of slider
 let testSlideButtons = document.querySelectorAll('.slide li');
 
+// handle the class active
+handleActiveClass(testSlideButtons)
+
 // loop on slide buttons 
 testSlideButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        // onclick a slide button
-        e.target.parentElement.querySelectorAll('li').forEach(li => {
-            // remove the classs active from all lis
-            li.classList.remove('active')
-        })
-        // add the class active to the clicked li
-        e.target.classList.add('active')
         // loop on all testimonials 
         testimonials.forEach(testimonial => {
             // change the diplay property to none for all testimonials blocks 
@@ -310,28 +321,107 @@ testSlideButtons.forEach(btn => {
     })
 })
 
+// Navigate with the navigation bar 
+
+
 // navigate with the navigation bullets
+let links = document.querySelectorAll('header li');
+handleActiveClass(links);
+scrollToSection(links);
 
 // select the navigation bullets
 let bullets = document.querySelectorAll('.bullets .bullet');
+// handle the class active 
+handleActiveClass(bullets)
+// generate the scrolling to sections
+scrollToSection(bullets);
 
-// loop on all bullets 
-bullets.forEach(bullet => {
-    bullet.addEventListener('click', (e) => {
-        // loop all bullets
-        e.target.parentElement.querySelectorAll('.bullet').forEach(blt => {
-            // remove the class active from the  bullet
-            blt.classList.remove('active');
-        });
-        // Add the class class to the clicked bullet
-        e.target.classList.add('active');
-        document.querySelector(e.target.dataset.section).scrollIntoView({
-            behavior : 'smooth'
+// Select buttons from the bullets options section
+let bulletsOptionBtn = document.querySelectorAll('.bullets-options span');
+handleActiveClass(bulletsOptionBtn);
+
+
+bulletsOptionBtn.forEach(btn => {
+    btn.addEventListener('click' , (e) =>{
+        if(e.target.classList.contains('yes')){
+            bulletsBlock.style.display = 'block';
+            localStorage.setItem('show-bullets' , 'yes')
+        }else {
+            bulletsBlock.style.display = 'none';
+            console.log('nonono')
+            localStorage.setItem('show-bullets' , 'no');
+        }
+    });
+})
+
+
+// function scroll to someWhere
+function scrollToSection(buttons){
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector(e.target.dataset.section).scrollIntoView({
+                behavior: 'smooth',
+            });
         })
     })
+}
 
-});
+// handle active classes between
+function handleActiveClass(elements) {
+    elements.forEach(elm => {
+        elm.addEventListener('click' , (e) => {
+            e.target.parentElement.querySelectorAll('.active').forEach(active => {
+                active.classList.remove('active');
+            })
+            e.target.classList.add('active');
+        })
+    })
+}
 
+// reset parametre to default
 
+// select thereset button
+let resetBtn = document.querySelector('.reset-option button');
+resetBtn.onclick = () => {
+    // Clear the local storage
+    localStorage.clear();
+
+    // reload the page
+    window.location.reload();
     
+}
+
+// toggle the menu
+
+// select the toggle button
+let toggleButton = document.querySelector('.toggle-menu');
+
+// select the menu
+let menu = document.querySelector('header ul');
+toggleButton.onclick = (e) => { 
+    e.stopPropagation();
+    menu.classList.toggle('open');
+    toggleButton.classList.toggle('menu-active');
+}
+
+// select the open small screen menu
+let tLinks = document.querySelector('header ul .menu'); 
+
+tLinks.onclick = (e) => {
+    e.stopPropagation();
+}
+
+// stop propagatin on the menu
+
+// Click everywhere 
+document.addEventListener('click' , (e) => {
+    if(e.target != toggleButton && e.target != tLinks){
+            if(tLinks.classList.contains('open')) {
+                toggleButton.classList.toggle('menu-active');
+                tLinks.classList.toggle('open');
+            }
+    }
+})
 

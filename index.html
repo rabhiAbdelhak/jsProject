@@ -36,42 +36,70 @@
                     </li>
                 </ul>
             </div>
-            <div class="section background-options">
+            <div class="section confirm-options background-options">
                 <h4>Random Background ?</h4>
-                <span class="yes" data-background="yes">Yes</span>
+                <span class="yes active" data-background="yes">Yes</span>
                 <span class="no" data-background="no">No</span>
+            </div>
+            <div class="section confirm-options bullets-options">
+                <h4>Show bullets?</h4>
+                <span class="yes active" data-background="yes">Yes</span>
+                <span class="no" data-background="no">No</span>
+            </div>
+            <div class="reset-option">
+                <button>Reset Default</button>
             </div>
         </div>
         <!-- End settings box -->
+        <!-- Start navigation bullets -->
+        <div class="bullets">
+            <div class="bullet" data-section = '.about'><div class="tooltip">About</div></div>
+            <div class="bullet" data-section = '.skills'><div class="tooltip">Skills</div></div>
+            <div class="bullet" data-section = '.gallery'><div class="tooltip">Gallery</div></div>
+            <div class="bullet" data-section = '.timeline'><div class="tooltip">Time Line</div></div>
+            <div class="bullet" data-section = '.features'><div class="tooltip">Features</div></div>
+            <div class="bullet" data-section = '.testimonials'><div class="tooltip">Testimonials</div></div>
+            <div class="bullet" data-section = '.contact'><div class="tooltip">Contact</div></div>
+        </div>
+        <!-- End Navigatin bullets -->
         <!-- Satrt landing page -->
         <div class="landing-page" id="landing">
             <div class="container">
                 <header>
                     <div class="logo">High Quality</div>
-                    <ul>
+                    <ul class="menu">
                         <li>
-                            <a class="active" href="#about">About</a>
+                            <a class="active" data-section=".about">About</a>
                         </li>
                         <li>
-                            <a href="#services">Services</a>
+                            <a data-section=".skills">Skills</a>
                         </li>
                         <li>
-                            <a href="#products">Products</a>
+                            <a data-section=".gallery">Gallery</a>
                         </li>
                         <li>
-                            <a href="#contact">Contact</a>
+                            <a data-section=".timeline">TimeLine</a>
+                        </li>
+                        <li>
+                            <a data-section=".features">Features</a>
+                        </li>
+                        <li>
+                            <a data-section=".testimonials">Testimonials</a>
+                        </li>
+                        <li>
+                            <a data-section=".contact">Contact</a>
                         </li>
                     </ul>
-                    <div class="toggle-menu">click</div>
+                    <div class="toggle-menu"><i class="fa-solid fa-bars"></i></div>
                 </header>
                 <div class="jumptron">
                     <h1>We Have
                         <span>The Best</span>Quality</h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
-                                                          alias architecto! Quos porro recusandae sint dolores minima pariatur
-                                                          obcaecati nisi dolore, blanditiis tenetur, cupiditate doloremque,
-                                                          eius delectus veniam sit inventore.
+                        alias architecto! Quos porro recusandae sint dolores minima pariatur
+                        obcaecati nisi dolore, blanditiis tenetur, cupiditate doloremque,
+                        eius delectus veniam sit inventore.
                     </p>
                     <a href="#" class="setBack">Go to details</a>
                 </div>
@@ -188,7 +216,7 @@
         </div>
         <!-- End Gallery section -->
         <!-- Start timeLine section -->
-        <div class="timeline" id="timeline">
+        <!-- <div class="timeline" id="timeline">
             <div class="container">
                 <div class="special-heading">
                     <h1>Time Line</h1>
@@ -221,7 +249,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- End timeLine section -->
         <!-- Start features section -->
         <div class="features" id='features'>
@@ -334,17 +362,36 @@
             </ul>
         </div>
         <!-- End testimonials section -->
-        <!-- Start navigation bullets -->
-        <div class="bullets">
-            <div class="bullet" data-section = '.landing-page'><div class="tooltip">Landing page</div></div>
-            <div class="bullet" data-section = '.about'><div class="tooltip">About</div></div>
-            <div class="bullet" data-section = '.skills'><div class="tooltip">Skills</div></div>
-            <div class="bullet" data-section = '.gallery'><div class="tooltip">Gallery</div></div>
-            <div class="bullet" data-section = '.timeline'><div class="tooltip">Time Line</div></div>
-            <div class="bullet" data-section = '.features'><div class="tooltip">Features</div></div>
-            <div class="bullet" data-section = '.testimonials'><div class="tooltip">Testimonials</div></div>
+        <!-- Start Contact section -->
+        <div class="contact">
+            <div class="container">
+                <div class="special-heading">
+                    <h1>Contact us</h1>
+                </div>
+                <div class="content">
+                    <form action="" class="form">
+                       <input type="text" placeholder="Your First Name" name='name'>
+                       <input type="text" placeholder="Your Last Name" name='name'>
+                       <input type="email" placeholder="Your Email" name='email'>
+                       <textarea type="text" placeholder="Your request" name='request' class='text-area'>
+                       </textarea>
+                       <input type="submit" value="Send">
+                    </form>
+                    <div class="explain">
+                        <h1>Contact us to :</h1>
+                        <ul>
+                            <li>Get an information about us.</li>
+                            <li>Ask about what interest you in our work.</li>
+                            <li>Suggest some others features we can offer.</li>
+                            <li>Collaborate with our team.</li>
+                            <li>Other reasons.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- End Navigatin bullets -->
+        <!-- End contact section -->
+        
         <script src="js/main.js"></script>
     </body>
 
